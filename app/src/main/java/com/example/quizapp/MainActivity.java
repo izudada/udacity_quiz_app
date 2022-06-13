@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton ans1, ans2, ans3, ans4;
     Button next;
     EditText name;
+    ScrollView main;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -41,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         ans4 = findViewById(R.id.answer4);
         next = findViewById(R.id.next);
         name = findViewById(R.id.username);
+        main = findViewById(R.id.main);
 
 //        Get the total number of questions and set text
         countTextView.setText("Total Number Of Question: " + totalQuestion);
@@ -165,6 +169,16 @@ public class MainActivity extends AppCompatActivity {
         currentQuestionIndex++ ;
         loadNewQuestion();
 
+    }
+
+
+    /**
+     * Performs an onclick action on the radio buttons
+     *
+     * @param *view either of the answers or radio button
+     */
+    public void onCheckButtonClicked(View view) {
+        main.setBackgroundColor(getResources().getColor(R.color.black));
     }
 
 
