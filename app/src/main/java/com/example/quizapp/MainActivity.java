@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 //    Dynamic Variables for changing content of a view
     TextView countTextView;
     TextView questionTextView;
-    RadioButton ans1, ans2, ans3, ans4, ans5;
+    RadioButton ans1, ans2, ans3, ans4;
     Button submit, next;
 
     int score = 0;
@@ -38,13 +38,30 @@ public class MainActivity extends AppCompatActivity {
 //        Get the total number of questions and set text
         countTextView.setText(R.string.count + totalQuestion);
 
+//        Load questions
         loadNewQuestion();
     }
 
-    private void loadNewQuestion() {
 
+    /**
+     * Loads a new question depending on the value of currentQuestionIndex
+     *
+     * @param
+     */
+    void loadNewQuestion() {
+
+        questionTextView.setText(question[currentQuestionIndex]);
+        ans1.setText(choices[currentQuestionIndex][0]);
+        ans2.setText(choices[currentQuestionIndex][1]);
+        ans1.setText(choices[currentQuestionIndex][0]);
     }
 
+
+    /**
+     * Performs an onclick action on the radio buttons and next button
+     *
+     * @param *view either of the answers or radio button
+     */
     public void onRadioButtonClicked(View view) {
        if (ans1.isChecked()) {
 
@@ -58,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Creates an array/list of questions
+     *
+     * @param
+     */
     public static String question [] = {
         "How many computer languages are in use?",
         "Who founded Apple Computer?",
@@ -66,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
         "Which of these is not an early computer?"
     };
 
+
+    /**
+     * A 2 dimensional array/list of answers to the above questions
+     *
+     * @param
+     */
     public static String choices [][] = {
             {"4312", "2000", "4000", "3200"},
             {"Bill Gates", "Stephen Fry", "Steve Jobs", "Stephen Hawking"},
@@ -74,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
             {"NASA", "SAGE", "UNIVAC", "ENIAC"}
     };
 
+
+    /**
+     * An array/list of correct answers
+     *
+     * @param
+     */
     public static String correctAnswers [] = {
         "2000",
         "Steve Jobs",
