@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(this)
                 .setTitle(passState)
-                .setMessage(endearment + name + "You scored " + score + " out of " + totalQuestion)
+                .setMessage(endearment + name.getText().toString() + " You scored " + score + " out of " + totalQuestion)
                 .setPositiveButton("Restart", ((dialogInterface, i) -> restartQuiz()))
-                .setCancelable(false)
+                .setCancelable(true)
                 .show();
 
     }
