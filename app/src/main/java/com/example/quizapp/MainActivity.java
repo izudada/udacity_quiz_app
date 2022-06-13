@@ -3,6 +3,7 @@ package com.example.quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -19,7 +20,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        Get views by their Ids
+        countTextView = findViewById(R.id.count);
+        questionTextView = findViewById(R.id.question);
+        ans1 = findViewById(R.id.answer1);
+        ans2 = findViewById(R.id.answer2);
+        ans3 = findViewById(R.id.answer3);
+        ans4 = findViewById(R.id.answer4);
+        next = findViewById(R.id.next);
     }
+
+    public void onRadioButtonClicked(View view) {
+       if (ans1.isChecked()) {
+
+       }else if (ans2.isChecked()){
+
+       }else if (ans3.isChecked()) {
+
+       }else if (ans4.isChecked()) {
+
+       }
+    }
+
 
     public static String question [] = {
         "How many computer languages are in use?",
