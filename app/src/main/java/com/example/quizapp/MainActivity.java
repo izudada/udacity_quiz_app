@@ -91,6 +91,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
+     * Performs a quiz restart action
+     *
+     * @param
+     */
+    void restartQuiz () {
+        score = 0;
+        currentQuestionIndex = 0;
+        loadNewQuestion();
+    }
+
+
+    /**
      * Performs an onclick action on the radio buttons
      *
      * @param *view either of the answers or radio button
