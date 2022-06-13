@@ -3,8 +3,17 @@ package com.example.quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+//    Dynamic Variables for changing content of a view
+    TextView countTextView;
+    TextView questionTextView;
+    RadioButton ans1, ans2, ans3, ans4, ans5;
+    Button submit, next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
