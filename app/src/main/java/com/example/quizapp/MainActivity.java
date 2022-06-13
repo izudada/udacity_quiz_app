@@ -3,6 +3,7 @@ package com.example.quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView countTextView;
     TextView questionTextView;
     RadioButton ans1, ans2, ans3, ans4;
-    Button submit, next;
+    Button next;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         next = findViewById(R.id.next);
 
 //        Get the total number of questions and set text
-        countTextView.setText(R.string.count + totalQuestion);
+        countTextView.setText("Total Number Of Question: " + question.length);
 
 //        Load questions
         loadNewQuestion();
