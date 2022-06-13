@@ -20,5 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+    public static String correctAnswers [] = {
 
+    };
 }
