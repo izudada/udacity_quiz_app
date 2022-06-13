@@ -84,6 +84,7 @@
         android:textColor="@color/background"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:id="@+id/next"/>
 
 </LinearLayout>
