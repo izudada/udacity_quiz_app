@@ -2,6 +2,7 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         next = findViewById(R.id.next);
 
 //        Get the total number of questions and set text
-        countTextView.setText("Total Number Of Question: " + question.length);
+        countTextView.setText("Total Number Of Question: " + totalQuestion);
 
 //        Load questions
         loadNewQuestion();
@@ -60,20 +61,56 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Performs an onclick action on the radio buttons and next button
+     * Performs an onclick action on the radio buttons
      *
      * @param *view either of the answers or radio button
      */
     public void onRadioButtonClicked(View view) {
-       if (ans1.isChecked()) {
 
-       }else if (ans2.isChecked()){
+//        Reset the color of each radio button when option selected changes
+        ans1.setTextColor(Color.WHITE);
+        ans2.setTextColor(Color.WHITE);
+        ans3.setTextColor(Color.WHITE);
+        ans4.setTextColor(Color.WHITE);
 
-       }else if (ans3.isChecked()) {
+        // Is the button now checked?
+        RadioButton checked = (RadioButton) view;
 
-       }else if (ans4.isChecked()) {
+//            Action when a radio button is clicked
+        currentAnswer = checked.getText().toString();
+        checked.setTextColor(Color.YELLOW);
 
-       }
+    }
+
+
+    /**
+     * Performs an onclick action on the next button
+     *
+     * @param *view either of the answers or radio button
+     */
+    public void onNextButtonClicked(View view) {
+        Log.v("Main Activity", ""+currentQuestionIndex +" " + totalQuestion );
+        if (currentQuestionIndex == 3) {
+            next.setText(R.string.submit);
+        }
+
+        ans1.setTextColor(Color.WHITE);
+        ans1.setChecked(false);
+        ans2.setTextColor(Color.WHITE);
+        ans2.setChecked(false);
+        ans3.setTextColor(Color.WHITE);
+        ans3.setChecked(false);
+        ans4.setTextColor(Color.WHITE);
+        ans4.setChecked(false);
+
+//            Action if the next button is clicked
+        currentQuestionIndex++ ;
+        loadNewQuestion();
+
+        if (currentAnswer.equals(correctAnswers[currentQuestionIndex])) {
+            score++ ;
+        }
+
     }
 
 
