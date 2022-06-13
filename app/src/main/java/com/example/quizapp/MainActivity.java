@@ -52,12 +52,18 @@ public class MainActivity extends AppCompatActivity {
      */
     void loadNewQuestion() {
 
+        if (currentQuestionIndex == totalQuestion) {
+            endQuiz();
+            return;
+        }
+
         questionTextView.setText(question[currentQuestionIndex]);
         ans1.setText(choices[currentQuestionIndex][0]);
         ans2.setText(choices[currentQuestionIndex][1]);
         ans3.setText(choices[currentQuestionIndex][2]);
         ans4.setText(choices[currentQuestionIndex][3]);
     }
+
 
 
     /**
