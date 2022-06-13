@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:text="@string/header"
         android:textSize="30sp"
-        android:layout_marginTop="16dp"
         android:textColor="@color/white"
         android:textStyle="bold"/>
 
@@ -23,7 +22,7 @@
         android:backgroundTint="@color/white"
         android:hint="@string/nameHint"
         android:inputType="textCapWords"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:textSize="20sp"
         android:textColorHint="@color/white"/>
 
@@ -33,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="@string/count"
         android:textSize="16sp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:id="@+id/count"
         android:textStyle="bold"/>
@@ -42,8 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/question"
-        android:textSize="25sp"
-        android:layout_marginTop="50dp"
+        android:textSize="22sp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         android:id="@+id/question"/>
 
@@ -86,6 +85,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:padding="8dp"
-        android:id="@+id/next"/>
+        android:id="@+id/next"
+        android:onClick="onNextButtonClicked"/>
 
 </LinearLayout>
