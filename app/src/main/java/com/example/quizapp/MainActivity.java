@@ -16,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
     RadioButton ans1, ans2, ans3, ans4, ans5;
     Button submit, next;
 
+    int score = 0;
+    int totalQuestion = question.length;
+    int currentQuestionIndex = 0;
+    String currentAnswer = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
         ans3 = findViewById(R.id.answer3);
         ans4 = findViewById(R.id.answer4);
         next = findViewById(R.id.next);
+
+//        Get the total number of questions and set text
+        countTextView.setText(R.string.count + totalQuestion);
+
+        loadNewQuestion();
+    }
+
+    private void loadNewQuestion() {
+
     }
 
     public void onRadioButtonClicked(View view) {
