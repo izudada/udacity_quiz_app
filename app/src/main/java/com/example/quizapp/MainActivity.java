@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
      * @param *view either of the answers or radio button
      */
     public void onNextButtonClicked(View view) {
-        Log.v("Main Activity", ""+currentQuestionIndex +" " + totalQuestion );
         if (currentQuestionIndex == 3) {
             next.setText(R.string.submit);
         }
