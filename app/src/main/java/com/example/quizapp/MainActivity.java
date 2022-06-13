@@ -56,12 +56,8 @@ public class MainActivity extends AppCompatActivity {
      * @param
      */
     void loadNewQuestion() {
+
         if (currentQuestionIndex == totalQuestion) {
-            String username = name.getText().toString();
-            if (username == " ") {
-                Toast.makeText(this, "Submit quiz without your name", Toast.LENGTH_SHORT).show();
-                return;
-            }
             endQuiz();
             return;
         }
@@ -88,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             endearment = "Well done ";
         } else {
             passState = "Failed";
-            endearment = "Try again "
+            endearment = "Try again ";
         }
 
         new AlertDialog.Builder(this)
@@ -142,8 +138,14 @@ public class MainActivity extends AppCompatActivity {
      * @param *view either of the answers or radio button
      */
     public void onNextButtonClicked(View view) {
+        String username = name.getText().toString();
         if (currentQuestionIndex == 3) {
             next.setText(R.string.submit);
+        }
+
+        if (currentQuestionIndex == 4 && username.length() == 0) {
+            Toast.makeText(this, "You can't submit this quiz without your name", Toast.LENGTH_LONG).show();
+            return;
         }
 
         ans1.setTextColor(Color.WHITE);
