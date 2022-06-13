@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Loads a new question depending on the value of currentQuestionIndex
+     * Loads a new question and answers depending on the value of currentQuestionIndex
      *
      * @param
      */
@@ -54,7 +54,8 @@ public class MainActivity extends AppCompatActivity {
         questionTextView.setText(question[currentQuestionIndex]);
         ans1.setText(choices[currentQuestionIndex][0]);
         ans2.setText(choices[currentQuestionIndex][1]);
-        ans1.setText(choices[currentQuestionIndex][0]);
+        ans3.setText(choices[currentQuestionIndex][2]);
+        ans4.setText(choices[currentQuestionIndex][3]);
     }
 
 
