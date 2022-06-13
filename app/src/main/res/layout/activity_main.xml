@@ -27,14 +27,6 @@
         android:textSize="20sp"
         android:textColorHint="@color/white"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/question"
-        android:textSize="25sp"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/white"
-        android:id="@+id/question"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,6 +37,15 @@
         android:textColor="@color/white"
         android:id="@+id/count"
         android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/question"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:id="@+id/question"/>
 
     <RadioGroup
         android:layout_width="match_parent"
@@ -79,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/next"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:textColor="@color/background"
         android:textSize="20sp"
