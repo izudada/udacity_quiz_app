@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TextView questionTextView;
     RadioButton ans1, ans2, ans3, ans4;
     Button next;
+    EditText name;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ans3 = findViewById(R.id.answer3);
         ans4 = findViewById(R.id.answer4);
         next = findViewById(R.id.next);
+        name = findViewById(R.id.username);
 
 //        Get the total number of questions and set text
         countTextView.setText("Total Number Of Question: " + totalQuestion);
@@ -52,8 +56,12 @@ public class MainActivity extends AppCompatActivity {
      * @param
      */
     void loadNewQuestion() {
-
         if (currentQuestionIndex == totalQuestion) {
+            String username = name.getText().toString();
+            if (username == " ") {
+                Toast.makeText(this, "Submit quiz without your name", Toast.LENGTH_SHORT).show();
+                return;
+            }
             endQuiz();
             return;
         }
@@ -74,15 +82,18 @@ public class MainActivity extends AppCompatActivity {
      */
     void endQuiz() {
         String passState = "";
+        String endearment = "";
         if (score > totalQuestion * 0.50) {
             passState = "Passed";
+            endearment = "Well done ";
         } else {
             passState = "Failed";
+            endearment = "Try again "
         }
 
         new AlertDialog.Builder(this)
                 .setTitle(passState)
-                .setMessage("You scored " + score + "Out of " + totalQuestion)
+                .setMessage(endearment + name + "You scored " + score + " out of " + totalQuestion)
                 .setPositiveButton("Restart", ((dialogInterface, i) -> restartQuiz()))
                 .setCancelable(false)
                 .show();
