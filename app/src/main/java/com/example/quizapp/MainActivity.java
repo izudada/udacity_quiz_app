@@ -173,12 +173,17 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Performs an onclick action on the radio buttons
+     * Performs an onclick action on the check box
      *
-     * @param *view either of the answers or radio button
+     * @param *view checkbox for changing the state of the parent view
      */
     public void onCheckButtonClicked(View view) {
-        main.setBackgroundColor(getResources().getColor(R.color.black));
+        CheckBox darkMode = (CheckBox) findViewById(R.id.dark_mode);
+        if (darkMode.isChecked() == true) {
+            main.setBackgroundColor(getResources().getColor(R.color.black));
+        } else {
+            main.setBackgroundColor(getResources().getColor(R.color.background));
+        }
     }
 
 
