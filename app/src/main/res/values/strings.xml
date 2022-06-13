@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="header">Simple Quiz</string>
+    <string name="question">Question Text For User</string>
+    <string name="answer1">Answer A</string>
+    <string name="answer2">Answer B</string>
+    <string name="answer3">Answer C</string>
+    <string name="answer4">Answer D</string>
+    <string name="nameHint">Enter your name</string>
+    <string name="next">Next</string>
+</resources>

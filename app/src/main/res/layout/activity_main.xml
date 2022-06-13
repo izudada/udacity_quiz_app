@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/background"
+    android:padding="24dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/header"
+        android:textSize="30sp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:backgroundTint="@color/white"
+        android:hint="@string/nameHint"
+        android:inputType="textCapWords"
+        android:layout_marginTop="24dp"
+        android:textSize="20sp"
+        android:textColorHint="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/question"
+        android:textSize="25sp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        android:id="@+id/question"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp">
+
+        <RadioButton
+            style="@style/radio"
+            android:id="@+id/answer1"
+            android:text="@string/answer1" />
+
+        <RadioButton
+            android:id="@+id/answer2"
+            android:text="@string/answer2"
+            style="@style/radio"/>
+
+        <RadioButton
+            android:id="@+id/answer3"
+            android:text="@string/answer3"
+            style="@style/radio"/>
+
+        <RadioButton
+            android:id="@+id/answer4"
+            android:text="@string/answer4"
+            style="@style/radio"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="8dp"/>
+
+</LinearLayout>
