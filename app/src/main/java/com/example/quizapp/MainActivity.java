@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
     void restartQuiz () {
         score = 0;
         currentQuestionIndex = 0;
+        next.setText(R.string.next);
         loadNewQuestion();
     }
 
