@@ -145,13 +145,13 @@ public class MainActivity extends AppCompatActivity {
         ans4.setTextColor(Color.WHITE);
         ans4.setChecked(false);
 
-//            Action if the next button is clicked
-        currentQuestionIndex++ ;
-        loadNewQuestion();
-
         if (currentAnswer.equals(correctAnswers[currentQuestionIndex])) {
             score++ ;
         }
+
+//            Action if the next button is clicked
+        currentQuestionIndex++ ;
+        loadNewQuestion();
 
     }
 
