@@ -2,6 +2,7 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,6 +65,29 @@ public class MainActivity extends AppCompatActivity {
         ans4.setText(choices[currentQuestionIndex][3]);
     }
 
+
+
+    /**
+     * Marks the end of a quiz
+     *
+     * @param
+     */
+    void endQuiz() {
+        String passState = "";
+        if (score > totalQuestion * 0.50) {
+            passState = "Passed";
+        } else {
+            passState = "Failed";
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle(passState)
+                .setMessage("You scored " + score + "Out of " + totalQuestion)
+                .setPositiveButton("Restart", ((dialogInterface, i) -> restartQuiz()))
+                .setCancelable(false)
+                .show();
+
+    }
 
 
     /**
