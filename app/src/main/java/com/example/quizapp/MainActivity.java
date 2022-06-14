@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     ScrollView main;
     RadioGroup allAnswers;
     EditText input;
+    LinearLayout checkBoxLayout;
+    CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -50,10 +52,16 @@ public class MainActivity extends AppCompatActivity {
         next = findViewById(R.id.next);
         main = findViewById(R.id.main);
         allAnswers = findViewById(R.id.radio_group);
+        checkBoxLayout = findViewById(R.id.checkboxes);
+        checkBox1 = findViewById(R.id.checkbox1);
+        checkBox2 = findViewById(R.id.checkbox2);
+        checkBox3 = findViewById(R.id.checkbox3);
+        checkBox4 = findViewById(R.id.checkbox4);
         input = findViewById(R.id.input);
         input.setVisibility(View.INVISIBLE);
+        checkBoxLayout.setVisibility(View.INVISIBLE);
 //        Get the total number of questions and set text
-        countTextView.setText("Total Number Of Question: " + totalQuestion);
+        countTextView.setText("Total umber of question " + totalQuestion);
 //        Load questions
         loadNewQuestion();
     }
@@ -61,15 +69,19 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Loads a new question and answers depending on the value of currentQuestionIndex
      *
-     * @param
      */
     void loadNewQuestion() {
         if (currentQuestionIndex == totalQuestion) {
             endQuiz();
             return;
         }
-        if (currentQuestionIndex == 4) {
+        if (currentQuestionIndex == 3) {
+            allAnswers.setVisibility(View.GONE);
+            input.setVisibility(View.INVISIBLE);
+            checkBoxLayout.setVisibility(View.VISIBLE);
+        }else if (currentQuestionIndex == 4) {
 //            Hide radio buttons to insert edit text
+            checkBoxLayout.setVisibility(View.INVISIBLE);
             allAnswers.setVisibility(View.GONE);
             input.setVisibility(View.VISIBLE);
         }
@@ -83,16 +95,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Marks the end of a quiz
      *
-     * @param
      */
     void endQuiz() {
-        String passState = "";
-        String endearment = "";
+        String endearment;
         if (score > totalQuestion * 0.50) {
-            passState = "Passed";
             endearment = "Well done ";
         } else {
-            passState = "Failed";
             endearment = "Try again ";
         }
         Toast.makeText(this, endearment + " You scored " + score + " out of " + totalQuestion, Toast.LENGTH_LONG).show();
@@ -102,12 +110,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Performs a quiz restart action
      *
-     * @param
      */
     void restartQuiz () {
         allAnswers.setVisibility(View.VISIBLE);
         input.getText().clear();
         input.setVisibility(View.INVISIBLE);
+        checkBoxLayout.setVisibility(View.INVISIBLE);
         score = 0;
         currentQuestionIndex = 0;
         next.setText(R.string.next);
@@ -117,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Performs an onclick action on the radio buttons
      *
-     * @param *view either of the answers or radio button
      */
     public void onRadioButtonClicked(View view) {
 //        Reset the color of each radio button when option selected changes
@@ -135,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Performs an onclick action on the next button
      *
-     * @param *view either of the answers or radio button
      */
     public void onNextButtonClicked(View view) {
         if (currentQuestionIndex == 3) {
@@ -150,6 +156,11 @@ public class MainActivity extends AppCompatActivity {
         ans4.setTextColor(Color.WHITE);
         ans4.setChecked(false);
 
+        if (currentQuestionIndex == 3) {
+            if (checkBox1.isChecked() == true && checkBox1.isChecked() == true && checkBox3.isChecked() == false && checkBox4.isChecked() == false) {
+                score++ ;
+            }
+        }
         if (currentQuestionIndex == 4) {
             currentAnswer = input.getText().toString();
         }
@@ -157,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
         if (currentAnswer.equals(correctAnswers[currentQuestionIndex])) {
             score++ ;
         }
-        Log.w("main ark", currentAnswer + " " + currentQuestionIndex );
 //            Action if the next button is clicked
         currentQuestionIndex++ ;
         loadNewQuestion();
@@ -167,33 +177,30 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Creates an array/list of questions
      *
-     * @param
      */
     public static String question [] = {
         "How many computer languages are in use?",
         "What does the Internet prefix WWW stand for?",
         "A network designed to allow communication within an organization is called:",
-        "Which of these is not an early computer?",
+        "Which of these is not a programming language?",
         "Who founded Apple Computer?"
     };
 
     /**
      * A 2 dimensional array/list of answers to the above questions
      *
-     * @param
      */
     public static String choices [][] = {
             {"4312", "2000", "4000", "3200"},
             {"World Wide Web", "Western Washington World", "Worldwide Weather", "Wide Width Wickets"},
             {"the Internet", "the World Wide Web", "Yahoo", "an intranet"},
-            {"NASA", "SAGE", "UNIVAC", "ENIAC"},
+            {"Python", "Java", "UNIVAC", "ENIAC"},
             {"Bill Gates", "Stephen Fry", "Steve Jobs", "Stephen Hawking"}
     };
 
     /**
      * An array/list of correct answers
      *
-     * @param
      */
     public static String correctAnswers [] = {
         "2000",
