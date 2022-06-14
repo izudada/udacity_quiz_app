@@ -57,7 +57,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp">
+            android:layout_marginLeft="16dp"
+            android:id="@+id/radio_group">
 
             <RadioButton
                 style="@style/radio"
