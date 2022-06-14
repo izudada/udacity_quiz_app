@@ -7,8 +7,12 @@
     <string name="answer3">Answer C</string>
     <string name="answer4">Answer D</string>
     <string name="editHint">Enter your answer</string>
-    <string name="next">Next</string>
+    <string name="checkbox1">Python</string>
+    <string name="checkbox2">Java</string>
+    <string name="checkbox3">Parrot</string>
+    <string name="checkbox4">Ubuntu</string>
     <string name="count">Total Number Of Questions</string>
     <string name="submit">Submit</string>
-    <string name="check">Dark mode</string>
+    <string name="next">Next</string>
+    <string name="number_of_question">Total Number Of Question: </string>
 </resources>
