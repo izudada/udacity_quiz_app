@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     TextView questionTextView;
     RadioButton ans1, ans2, ans3, ans4;
     Button next;
-    EditText name;
     ScrollView main;
 
     int score = 0;
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 //        Get views by their Ids
         countTextView = findViewById(R.id.count);
         questionTextView = findViewById(R.id.question);
@@ -43,16 +41,12 @@ public class MainActivity extends AppCompatActivity {
         ans3 = findViewById(R.id.answer3);
         ans4 = findViewById(R.id.answer4);
         next = findViewById(R.id.next);
-        name = findViewById(R.id.username);
         main = findViewById(R.id.main);
-
 //        Get the total number of questions and set text
         countTextView.setText("Total Number Of Question: " + totalQuestion);
-
 //        Load questions
         loadNewQuestion();
     }
-
 
     /**
      * Loads a new question and answers depending on the value of currentQuestionIndex
@@ -60,20 +54,16 @@ public class MainActivity extends AppCompatActivity {
      * @param
      */
     void loadNewQuestion() {
-
         if (currentQuestionIndex == totalQuestion) {
             endQuiz();
             return;
         }
-
         questionTextView.setText(question[currentQuestionIndex]);
         ans1.setText(choices[currentQuestionIndex][0]);
         ans2.setText(choices[currentQuestionIndex][1]);
         ans3.setText(choices[currentQuestionIndex][2]);
         ans4.setText(choices[currentQuestionIndex][3]);
     }
-
-
 
     /**
      * Marks the end of a quiz
@@ -90,16 +80,9 @@ public class MainActivity extends AppCompatActivity {
             passState = "Failed";
             endearment = "Try again ";
         }
-
-        new AlertDialog.Builder(this)
-                .setTitle(passState)
-                .setMessage(endearment + name.getText().toString() + " You scored " + score + " out of " + totalQuestion)
-                .setPositiveButton("Restart", ((dialogInterface, i) -> restartQuiz()))
-                .setCancelable(true)
-                .show();
-
+        Toast.makeText(this, endearment + " You scored " + score + " out of " + totalQuestion, Toast.LENGTH_LONG).show();
+        restartQuiz();
     }
-
 
     /**
      * Performs a quiz restart action
@@ -113,29 +96,24 @@ public class MainActivity extends AppCompatActivity {
         loadNewQuestion();
     }
 
-
     /**
      * Performs an onclick action on the radio buttons
      *
      * @param *view either of the answers or radio button
      */
     public void onRadioButtonClicked(View view) {
-
 //        Reset the color of each radio button when option selected changes
         ans1.setTextColor(Color.WHITE);
         ans2.setTextColor(Color.WHITE);
         ans3.setTextColor(Color.WHITE);
         ans4.setTextColor(Color.WHITE);
-
         // Is the button now checked?
         RadioButton checked = (RadioButton) view;
-
 //            Action when a radio button is clicked
         currentAnswer = checked.getText().toString();
         checked.setTextColor(Color.YELLOW);
 
     }
-
 
     /**
      * Performs an onclick action on the next button
@@ -143,16 +121,9 @@ public class MainActivity extends AppCompatActivity {
      * @param *view either of the answers or radio button
      */
     public void onNextButtonClicked(View view) {
-        String username = name.getText().toString();
         if (currentQuestionIndex == 3) {
             next.setText(R.string.submit);
         }
-
-        if (currentQuestionIndex == 4 && username.length() == 0) {
-            Toast.makeText(this, "You can't submit this quiz without your name", Toast.LENGTH_LONG).show();
-            return;
-        }
-
         ans1.setTextColor(Color.WHITE);
         ans1.setChecked(false);
         ans2.setTextColor(Color.WHITE);
@@ -165,13 +136,11 @@ public class MainActivity extends AppCompatActivity {
         if (currentAnswer.equals(correctAnswers[currentQuestionIndex])) {
             score++ ;
         }
-
 //            Action if the next button is clicked
         currentQuestionIndex++ ;
         loadNewQuestion();
 
     }
-
 
     /**
      * Performs an onclick action on the check box
@@ -187,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     /**
      * Creates an array/list of questions
      *
@@ -201,7 +169,6 @@ public class MainActivity extends AppCompatActivity {
         "Which of these is not an early computer?"
     };
 
-
     /**
      * A 2 dimensional array/list of answers to the above questions
      *
@@ -214,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
             {"the Internet", "the World Wide Web", "Yahoo", "an intranet"},
             {"NASA", "SAGE", "UNIVAC", "ENIAC"}
     };
-
 
     /**
      * An array/list of correct answers
