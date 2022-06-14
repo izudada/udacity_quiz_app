@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton ans1, ans2, ans3, ans4;
     Button next;
     ScrollView main;
+    RadioGroup allAnswers;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         ans4 = findViewById(R.id.answer4);
         next = findViewById(R.id.next);
         main = findViewById(R.id.main);
+        allAnswers = findViewById(R.id.radio_group);
 //        Get the total number of questions and set text
         countTextView.setText("Total Number Of Question: " + totalQuestion);
 //        Load questions
@@ -58,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
             endQuiz();
             return;
         }
+        if (currentQuestionIndex == 3) {
+//            Hide radio buttons to insert edit text
+            allAnswers.setVisibility(View.GONE);
+        }
+
         questionTextView.setText(question[currentQuestionIndex]);
         ans1.setText(choices[currentQuestionIndex][0]);
         ans2.setText(choices[currentQuestionIndex][1]);
@@ -163,10 +171,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public static String question [] = {
         "How many computer languages are in use?",
-        "Who founded Apple Computer?",
         "What does the Internet prefix WWW stand for?",
         "A network designed to allow communication within an organization is called:",
-        "Which of these is not an early computer?"
+        "Which of these is not an early computer?",
+        "Who founded Apple Computer?"
     };
 
     /**
@@ -176,10 +184,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public static String choices [][] = {
             {"4312", "2000", "4000", "3200"},
-            {"Bill Gates", "Stephen Fry", "Steve Jobs", "Stephen Hawking"},
             {"World Wide Web", "Western Washington World", "Worldwide Weather", "Wide Width Wickets"},
             {"the Internet", "the World Wide Web", "Yahoo", "an intranet"},
-            {"NASA", "SAGE", "UNIVAC", "ENIAC"}
+            {"NASA", "SAGE", "UNIVAC", "ENIAC"},
+            {"Bill Gates", "Stephen Fry", "Steve Jobs", "Stephen Hawking"}
     };
 
     /**
@@ -189,9 +197,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public static String correctAnswers [] = {
         "2000",
-        "Steve Jobs",
         "World Wide Web",
         "an intranet",
-        "NASA"
+        "NASA",
+        "Steve Jobs"
     };
 }
