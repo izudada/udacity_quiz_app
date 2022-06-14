@@ -1,15 +1,19 @@
 package com.example.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button next;
     ScrollView main;
     RadioGroup allAnswers;
+    EditText input;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -45,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         next = findViewById(R.id.next);
         main = findViewById(R.id.main);
         allAnswers = findViewById(R.id.radio_group);
+        input = findViewById(R.id.input);
+        input.setVisibility(View.INVISIBLE);
 //        Get the total number of questions and set text
         countTextView.setText("Total Number Of Question: " + totalQuestion);
 //        Load questions
@@ -61,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
             endQuiz();
             return;
         }
-        if (currentQuestionIndex == 3) {
+        if (currentQuestionIndex == 4) {
 //            Hide radio buttons to insert edit text
             allAnswers.setVisibility(View.GONE);
+            input.setVisibility(View.VISIBLE);
         }
-
         questionTextView.setText(question[currentQuestionIndex]);
         ans1.setText(choices[currentQuestionIndex][0]);
         ans2.setText(choices[currentQuestionIndex][1]);
@@ -98,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
      * @param
      */
     void restartQuiz () {
+        allAnswers.setVisibility(View.VISIBLE);
+        input.getText().clear();
+        input.setVisibility(View.INVISIBLE);
         score = 0;
         currentQuestionIndex = 0;
         next.setText(R.string.next);
@@ -120,7 +130,6 @@ public class MainActivity extends AppCompatActivity {
 //            Action when a radio button is clicked
         currentAnswer = checked.getText().toString();
         checked.setTextColor(Color.YELLOW);
-
     }
 
     /**
@@ -141,27 +150,18 @@ public class MainActivity extends AppCompatActivity {
         ans4.setTextColor(Color.WHITE);
         ans4.setChecked(false);
 
+        if (currentQuestionIndex == 4) {
+            currentAnswer = input.getText().toString();
+        }
+
         if (currentAnswer.equals(correctAnswers[currentQuestionIndex])) {
             score++ ;
         }
+        Log.w("main ark", currentAnswer + " " + currentQuestionIndex );
 //            Action if the next button is clicked
         currentQuestionIndex++ ;
         loadNewQuestion();
 
-    }
-
-    /**
-     * Performs an onclick action on the check box
-     *
-     * @param *view checkbox for changing the state of the parent view
-     */
-    public void onCheckButtonClicked(View view) {
-        CheckBox darkMode = (CheckBox) findViewById(R.id.dark_mode);
-        if (darkMode.isChecked() == true) {
-            main.setBackgroundColor(getResources().getColor(R.color.black));
-        } else {
-            main.setBackgroundColor(getResources().getColor(R.color.background));
-        }
     }
 
     /**

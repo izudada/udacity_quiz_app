@@ -6,7 +6,7 @@
     <string name="answer2">Answer B</string>
     <string name="answer3">Answer C</string>
     <string name="answer4">Answer D</string>
-    <string name="nameHint">Enter your name</string>
+    <string name="editHint">Enter your answer</string>
     <string name="next">Next</string>
     <string name="count">Total Number Of Questions</string>
     <string name="submit">Submit</string>

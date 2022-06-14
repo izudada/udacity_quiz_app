@@ -22,17 +22,6 @@
             android:textColor="@color/white"
             android:textStyle="bold"/>
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/dark_mode"
-            android:text="@string/check"
-            android:textSize="16sp"
-            android:padding="24dp"
-            android:textColor="@color/white"
-            android:buttonTint="@color/white"
-            android:onClick="onCheckButtonClicked"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,6 +70,18 @@
                 style="@style/radio"/>
 
         </RadioGroup>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/input"
+            android:backgroundTint="@color/white"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:hint="@string/editHint"
+            android:inputType="textCapWords"
+            android:textSize="16sp"
+            android:onClick="onRadioButtonClicked"/>
 
         <Button
             android:layout_width="match_parent"
