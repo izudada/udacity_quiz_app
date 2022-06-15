@@ -29,7 +29,7 @@
             android:textSize="16sp"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
-            android:id="@+id/count"
+            android:id="@+id/number_of_question_text_view"
             android:textStyle="bold"/>
 
         <TextView
@@ -39,7 +39,7 @@
             android:textSize="22sp"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
-            android:id="@+id/question"/>
+            android:id="@+id/question_text_view"/>
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -47,25 +47,25 @@
             android:orientation="vertical"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
-            android:id="@+id/radio_group">
+            android:id="@+id/radio_group_text_view">
 
             <RadioButton
                 style="@style/radio"
-                android:id="@+id/answer1"
+                android:id="@+id/option_a_text_view"
                 android:text="@string/answer1" />
 
             <RadioButton
-                android:id="@+id/answer2"
+                android:id="@+id/option_b_text_view"
                 android:text="@string/answer2"
                 style="@style/radio"/>
 
             <RadioButton
-                android:id="@+id/answer3"
+                android:id="@+id/option_c_text_view"
                 android:text="@string/answer3"
                 style="@style/radio"/>
 
             <RadioButton
-                android:id="@+id/answer4"
+                android:id="@+id/option_d_text_view"
                 android:text="@string/answer4"
                 style="@style/radio"/>
 
@@ -74,7 +74,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/input"
+            android:id="@+id/edit_text_view"
             android:backgroundTint="@color/white"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
@@ -87,25 +87,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:id="@+id/checkboxes">
+            android:id="@+id/checkbox_wrapper">
 
             <CheckBox
-                android:id="@+id/checkbox1"
+                android:id="@+id/checkbox1_text_view"
                 android:text="@string/checkbox1"
                 style="@style/checkbox"/>
 
             <CheckBox
-                android:id="@+id/checkbox2"
+                android:id="@+id/checkbox2_text_view"
                 android:text="@string/checkbox2"
                 style="@style/checkbox"/>
 
             <CheckBox
-                android:id="@+id/checkbox3"
+                android:id="@+id/checkbox3_text_view"
                 android:text="@string/checkbox3"
                 style="@style/checkbox"/>
 
             <CheckBox
-                android:id="@+id/checkbox4"
+                android:id="@+id/checkbox4_text_view"
                 android:text="@string/checkbox4"
                 style="@style/checkbox"/>
 
@@ -121,7 +121,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:padding="8dp"
-            android:id="@+id/next"
+            android:id="@+id/next_button_text_view"
             android:onClick="onNextButtonClicked"/>
 
     </LinearLayout>

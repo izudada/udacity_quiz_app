@@ -43,21 +43,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        Get views by their Ids
-        countTextView = findViewById(R.id.count);
-        questionTextView = findViewById(R.id.question);
-        answerA = findViewById(R.id.answer1);
-        answerB = findViewById(R.id.answer2);
-        answerC = findViewById(R.id.answer3);
-        answerD = findViewById(R.id.answer4);
-        nextButton = findViewById(R.id.next);
+        countTextView = findViewById(R.id.number_of_question_text_view);
+        questionTextView = findViewById(R.id.question_text_view);
+        answerA = findViewById(R.id.option_a_text_view);
+        answerB = findViewById(R.id.option_b_text_view);
+        answerC = findViewById(R.id.option_c_text_view);
+        answerD = findViewById(R.id.option_d_text_view);
+        nextButton = findViewById(R.id.next_button_text_view);
         scrollView = findViewById(R.id.main);
-        allAnswers = findViewById(R.id.radio_group);
-        checkBoxLayout = findViewById(R.id.checkboxes);
-        checkBox1 = findViewById(R.id.checkbox1);
-        checkBox2 = findViewById(R.id.checkbox2);
-        checkBox3 = findViewById(R.id.checkbox3);
-        checkBox4 = findViewById(R.id.checkbox4);
-        inputText = findViewById(R.id.input);
+        allAnswers = findViewById(R.id.radio_group_text_view);
+        checkBoxLayout = findViewById(R.id.checkbox_wrapper);
+        checkBox1 = findViewById(R.id.checkbox1_text_view);
+        checkBox2 = findViewById(R.id.checkbox2_text_view);
+        checkBox3 = findViewById(R.id.checkbox3_text_view);
+        checkBox4 = findViewById(R.id.checkbox4_text_view);
+        inputText = findViewById(R.id.edit_text_view);
         inputText.setVisibility(View.INVISIBLE);
         checkBoxLayout.setVisibility(View.INVISIBLE);
 //        Get the total number of questions and set text
