@@ -118,6 +118,10 @@ public class MainActivity extends AppCompatActivity {
         checkBoxLayout.setVisibility(View.INVISIBLE);
         score = 0;
         currentQuestionIndex = 0;
+        checkBox1.setChecked(false);
+        checkBox2.setChecked(false);
+        checkBox3.setChecked(false);
+        checkBox4.setChecked(false);
         nextButton.setText(R.string.next);
         loadNewQuestion();
     }
