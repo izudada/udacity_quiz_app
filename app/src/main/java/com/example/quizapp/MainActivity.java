@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
 //    Dynamic Variables for changing content of a view
     TextView countTextView;
     TextView questionTextView;
-    RadioButton ans1, ans2, ans3, ans4;
-    Button next;
-    ScrollView main;
+    RadioButton answerA, answerB, answerC, answerD;
+    Button nextButton;
+    ScrollView scrollView;
     RadioGroup allAnswers;
-    EditText input;
+    EditText inputText;
     LinearLayout checkBoxLayout;
     CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
 
@@ -45,20 +45,20 @@ public class MainActivity extends AppCompatActivity {
 //        Get views by their Ids
         countTextView = findViewById(R.id.count);
         questionTextView = findViewById(R.id.question);
-        ans1 = findViewById(R.id.answer1);
-        ans2 = findViewById(R.id.answer2);
-        ans3 = findViewById(R.id.answer3);
-        ans4 = findViewById(R.id.answer4);
-        next = findViewById(R.id.next);
-        main = findViewById(R.id.main);
+        answerA = findViewById(R.id.answer1);
+        answerB = findViewById(R.id.answer2);
+        answerC = findViewById(R.id.answer3);
+        answerD = findViewById(R.id.answer4);
+        nextButton = findViewById(R.id.next);
+        scrollView = findViewById(R.id.main);
         allAnswers = findViewById(R.id.radio_group);
         checkBoxLayout = findViewById(R.id.checkboxes);
         checkBox1 = findViewById(R.id.checkbox1);
         checkBox2 = findViewById(R.id.checkbox2);
         checkBox3 = findViewById(R.id.checkbox3);
         checkBox4 = findViewById(R.id.checkbox4);
-        input = findViewById(R.id.input);
-        input.setVisibility(View.INVISIBLE);
+        inputText = findViewById(R.id.input);
+        inputText.setVisibility(View.INVISIBLE);
         checkBoxLayout.setVisibility(View.INVISIBLE);
 //        Get the total number of questions and set text
         countTextView.setText("Total umber of question " + totalQuestion);
@@ -77,19 +77,19 @@ public class MainActivity extends AppCompatActivity {
         }
         if (currentQuestionIndex == 3) {
             allAnswers.setVisibility(View.GONE);
-            input.setVisibility(View.INVISIBLE);
+            inputText.setVisibility(View.INVISIBLE);
             checkBoxLayout.setVisibility(View.VISIBLE);
         }else if (currentQuestionIndex == 4) {
 //            Hide radio buttons to insert edit text
             checkBoxLayout.setVisibility(View.INVISIBLE);
             allAnswers.setVisibility(View.GONE);
-            input.setVisibility(View.VISIBLE);
+            inputText.setVisibility(View.VISIBLE);
         }
         questionTextView.setText(question[currentQuestionIndex]);
-        ans1.setText(choices[currentQuestionIndex][0]);
-        ans2.setText(choices[currentQuestionIndex][1]);
-        ans3.setText(choices[currentQuestionIndex][2]);
-        ans4.setText(choices[currentQuestionIndex][3]);
+        answerA.setText(choices[currentQuestionIndex][0]);
+        answerB.setText(choices[currentQuestionIndex][1]);
+        answerC.setText(choices[currentQuestionIndex][2]);
+        answerD.setText(choices[currentQuestionIndex][3]);
     }
 
     /**
@@ -113,12 +113,12 @@ public class MainActivity extends AppCompatActivity {
      */
     void restartQuiz () {
         allAnswers.setVisibility(View.VISIBLE);
-        input.getText().clear();
-        input.setVisibility(View.INVISIBLE);
+        inputText.getText().clear();
+        inputText.setVisibility(View.INVISIBLE);
         checkBoxLayout.setVisibility(View.INVISIBLE);
         score = 0;
         currentQuestionIndex = 0;
-        next.setText(R.string.next);
+        nextButton.setText(R.string.next);
         loadNewQuestion();
     }
 
@@ -128,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onRadioButtonClicked(View view) {
 //        Reset the color of each radio button when option selected changes
-        ans1.setTextColor(Color.WHITE);
-        ans2.setTextColor(Color.WHITE);
-        ans3.setTextColor(Color.WHITE);
-        ans4.setTextColor(Color.WHITE);
+        answerA.setTextColor(Color.WHITE);
+        answerB.setTextColor(Color.WHITE);
+        answerC.setTextColor(Color.WHITE);
+        answerD.setTextColor(Color.WHITE);
         // Is the button now checked?
         RadioButton checked = (RadioButton) view;
 //            Action when a radio button is clicked
@@ -145,16 +145,16 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onNextButtonClicked(View view) {
         if (currentQuestionIndex == 3) {
-            next.setText(R.string.submit);
+            nextButton.setText(R.string.submit);
         }
-        ans1.setTextColor(Color.WHITE);
-        ans1.setChecked(false);
-        ans2.setTextColor(Color.WHITE);
-        ans2.setChecked(false);
-        ans3.setTextColor(Color.WHITE);
-        ans3.setChecked(false);
-        ans4.setTextColor(Color.WHITE);
-        ans4.setChecked(false);
+        answerA.setTextColor(Color.WHITE);
+        answerA.setChecked(false);
+        answerB.setTextColor(Color.WHITE);
+        answerB.setChecked(false);
+        answerC.setTextColor(Color.WHITE);
+        answerC.setChecked(false);
+        answerD.setTextColor(Color.WHITE);
+        answerD.setChecked(false);
 
         if (currentQuestionIndex == 3) {
             if (checkBox1.isChecked() == true && checkBox1.isChecked() == true && checkBox3.isChecked() == false && checkBox4.isChecked() == false) {
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         if (currentQuestionIndex == 4) {
-            currentAnswer = input.getText().toString();
+            currentAnswer = inputText.getText().toString();
         }
 
         if (currentAnswer.equals(correctAnswers[currentQuestionIndex])) {
@@ -206,7 +206,8 @@ public class MainActivity extends AppCompatActivity {
         "2000",
         "World Wide Web",
         "an intranet",
-        "NASA",
+//        The below empty string is a feature and not a bug, Please
+        "",
         "Steve Jobs"
     };
 }
