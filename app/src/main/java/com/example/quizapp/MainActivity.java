@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup allAnswers;
     EditText inputText;
     LinearLayout checkBoxLayout;
-    CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
+    CheckBox checkBoxOption1, checkBoxOption2, checkBoxOption3, checkBoxOption4;
 
     int score = 0;
     int totalQuestion = question.length;
@@ -53,10 +53,10 @@ public class MainActivity extends AppCompatActivity {
         scrollView = findViewById(R.id.main);
         allAnswers = findViewById(R.id.radio_group_text_view);
         checkBoxLayout = findViewById(R.id.checkbox_wrapper);
-        checkBox1 = findViewById(R.id.checkbox1_text_view);
-        checkBox2 = findViewById(R.id.checkbox2_text_view);
-        checkBox3 = findViewById(R.id.checkbox3_text_view);
-        checkBox4 = findViewById(R.id.checkbox4_text_view);
+        checkBoxOption1 = findViewById(R.id.checkbox1_text_view);
+        checkBoxOption2 = findViewById(R.id.checkbox2_text_view);
+        checkBoxOption3 = findViewById(R.id.checkbox3_text_view);
+        checkBoxOption4 = findViewById(R.id.checkbox4_text_view);
         inputText = findViewById(R.id.edit_text_view);
         inputText.setVisibility(View.INVISIBLE);
         checkBoxLayout.setVisibility(View.INVISIBLE);
@@ -118,10 +118,10 @@ public class MainActivity extends AppCompatActivity {
         checkBoxLayout.setVisibility(View.INVISIBLE);
         score = 0;
         currentQuestionIndex = 0;
-        checkBox1.setChecked(false);
-        checkBox2.setChecked(false);
-        checkBox3.setChecked(false);
-        checkBox4.setChecked(false);
+        checkBoxOption1.setChecked(false);
+        checkBoxOption2.setChecked(false);
+        checkBoxOption3.setChecked(false);
+        checkBoxOption4.setChecked(false);
         nextButton.setText(R.string.next);
         loadNewQuestion();
     }
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         answerD.setChecked(false);
 
         if (currentQuestionIndex == 3) {
-            if (checkBox1.isChecked() == true && checkBox1.isChecked() == true && checkBox3.isChecked() == false && checkBox4.isChecked() == false) {
+            if (checkBoxOption1.isChecked() == true && checkBoxOption2.isChecked() == true && checkBoxOption3.isChecked() == false && checkBoxOption4.isChecked() == false) {
                 score++ ;
             }
         }
